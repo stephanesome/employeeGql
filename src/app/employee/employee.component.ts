@@ -30,15 +30,23 @@ export class EmployeeComponent {
               private employeeService: EmployeeService,
               private router: Router) { }
 
+
   onSubmit() {
-    const employee: Employee = new Employee(this.name.value,
-      new Date(this.dateOfBirth.value),
+    const employee: Employee = new Employee("",
+      this.name.value,
+      this.dateOfBirth.value,
       this.city.value,
       this.salary.value,
       this.gender.value,
       this.email.value);
-    this.employeeService.addEmployee(employee);
-    this.employeeForm.reset();
-    this.router.navigate(['/employees']).then(() => {});
+    this.employeeService.addEmployee(employee).subscribe(
+      {
+        next: () => {
+          this.employeeForm.reset();
+          this.router.navigate(['/employees']).then(() => {
+          })
+        }
+      }
+    )
   }
 }

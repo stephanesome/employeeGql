@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employee/employee.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {ReactiveFormsModule} from "@angular/forms";
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        GraphQLModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
