@@ -8,23 +8,16 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employee/employee.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { GraphQLModule } from './graphql.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    EmployeesComponent,
-    EmployeeComponent
-  ],
-    imports: [
-        BrowserModule,
+@NgModule({ declarations: [
+        AppComponent,
+        EmployeesComponent,
+        EmployeeComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         NgbModule,
         ReactiveFormsModule,
-        GraphQLModule,
-        HttpClientModule
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+        GraphQLModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
