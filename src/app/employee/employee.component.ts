@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import { AbstractControl, FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {EmployeeService} from "../service/employee.service";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import {Employee} from "../model/employee";
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+    selector: 'app-employee',
+    templateUrl: './employee.component.html',
+    styleUrls: ['./employee.component.css'],
+    standalone: true,
+    imports: [RouterLink, ReactiveFormsModule]
 })
 export class EmployeeComponent {
   employeeForm = this.builder.group({
