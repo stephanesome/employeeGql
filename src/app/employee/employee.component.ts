@@ -5,11 +5,11 @@ import { Router, RouterLink } from "@angular/router";
 import {Employee} from "../model/employee";
 
 @Component({
-    selector: 'app-employee',
-    templateUrl: './employee.component.html',
-    styleUrls: ['./employee.component.css'],
-    standalone: true,
-    imports: [RouterLink, ReactiveFormsModule]
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css'],
+  standalone: true,
+  imports: [RouterLink, ReactiveFormsModule]
 })
 export class EmployeeComponent {
   employeeForm = this.builder.group({
