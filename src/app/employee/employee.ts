@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
-import {EmployeeService} from "../service/employee.service";
+import {EmployeeService} from "../service/employee-service";
 import { Router, RouterLink } from "@angular/router";
-import {Employee} from "../model/employee";
+import {EmployeeEntity} from "../model/employeeEntity";
 
 @Component({
   selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css'],
-  standalone: true,
+  templateUrl: './employee.html',
+  styleUrls: ['./employee.css'],
   imports: [RouterLink, ReactiveFormsModule]
 })
-export class EmployeeComponent {
+export class Employee {
   employeeForm = this.builder.group({
     name: ['', Validators.required],
     dateOfBirth: ['', Validators.required],
@@ -34,7 +33,7 @@ export class EmployeeComponent {
 
 
   onSubmit() {
-    const employee: Employee = new Employee("",
+    const employee: EmployeeEntity = new EmployeeEntity("",
       this.name.value,
       this.dateOfBirth.value,
       this.city.value,

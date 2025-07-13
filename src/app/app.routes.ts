@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import {EmployeeComponent} from "./employee/employee.component";
-import {EmployeesComponent} from "./employees/employees.component";
+import {Employee} from "./employee/employee";
+import {Employees} from "./employees/employees";
 
 export const routes: Routes = [
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'employees', component: EmployeesComponent},
+  {path: 'employee', component: Employee},
+  {path: 'employees', component: Employees},
   {path: '', redirectTo: 'employee', pathMatch: 'full'},
-  {path: '**', component: EmployeesComponent}
+  {path: '**', component: Employees}
 ];
 

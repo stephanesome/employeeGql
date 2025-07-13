@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, map, Observable} from "rxjs";
-import {Employee} from "../model/employee";
+import {EmployeeEntity} from "../model/employeeEntity";
 import {Apollo} from "apollo-angular";
 import {gql} from "@apollo/client/core";
 
@@ -41,7 +41,7 @@ mutation addEmployee($name: String!,
   providedIn: 'root'
 })
 export class EmployeeService {
-  employees$: BehaviorSubject<readonly Employee[]> = new BehaviorSubject<readonly Employee[]>([]);
+  employees$: BehaviorSubject<readonly EmployeeEntity[]> = new BehaviorSubject<readonly EmployeeEntity[]>([]);
 
   constructor(private apollo: Apollo) {
     this.apollo.watchQuery<any>({query: GET_EMPLOYEES}).valueChanges.pipe(
@@ -51,11 +51,11 @@ export class EmployeeService {
     ).subscribe();
   }
 
-  get $(): Observable<readonly Employee[]> {
+  get $(): Observable<readonly EmployeeEntity[]> {
     return this.employees$.asObservable();
   }
 
-  addEmployee(employee: Employee) {
+  addEmployee(employee: EmployeeEntity) {
     return this.apollo.mutate<any>({mutation: ADD_EMPLOYEE, variables: {
       name: employee.name,
       dateOfBirth: employee.dateOfBirth,

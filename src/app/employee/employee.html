@@ -1,13 +1,13 @@
-<a class="btn btn-primary" [routerLink]="['/employees']">Employee List</a>
+<a class="btn btn-primary" [routerLink]="['/employees']">EmployeeEntity List</a>
 <div class="container">
-  <h1>Employee Entry Form</h1>
+  <h1>EmployeeEntity Entry Form</h1>
   <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="name">Name:</label>
       <input type="text" class="form-control" id="name" formControlName="name" required>
       @if (name.dirty && !name.valid) {
         <div class="alert alert-danger">
-          Employee Name is required.
+          EmployeeEntity Name is required.
         </div>
       }
     </div>

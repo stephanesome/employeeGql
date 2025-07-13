@@ -1,4 +1,4 @@
-export class Employee {
+export class EmployeeEntity {
   constructor(
     public id: string,
     public name: string,
